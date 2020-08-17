@@ -1,0 +1,29 @@
+{
+  "name": "video-library",
+  "version": "1.0.0",
+  "description": "<h3>Story:<br></h3> There is apprehension that Youtube servers will be unavailable since It’s hard to predict the nearest future. Your company has been engaged to provide internal service so Youtube data can be stored as a backup.<br> <h3>Requirements<br></h3> Important: For the sake of simplicity focus on the backend side - your primary job is to prepare suitable API. The requirements assume an existing page but for now it is not obligatory - you can test your API with Postman.<br>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KozubIgn/Video-Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KozubIgn/Video-Library/issues"
+  },
+  "homepage": "https://github.com/KozubIgn/Video-Library#readme",
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "^3.1.3",
+    "express": "*",
+    "express-validator": "^6.6.1",
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
