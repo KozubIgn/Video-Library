@@ -1,8 +1,8 @@
-let express = require('express');
+const express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
-
-let app = express();
+const PORT = process.env.PORT || 8000;
+const app = express();
 
 //View Engine
 app.set('view engine', 'ejs');
@@ -16,7 +16,6 @@ app.get('/', function (req, res) {
     res.send('hello World!');
 });
 
-app.listen(8000, function () {
-    console.log('server started on port 8000...');
-
+app.listen(PORT, function () {
+    console.log(`server started on port ${PORT}...`);
 })
