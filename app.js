@@ -5,7 +5,6 @@ const pool = require("./poolDb");
 const PORT = process.env.PORT || 8000;
 const app = express();
 
-
 //View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
