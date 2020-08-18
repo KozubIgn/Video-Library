@@ -3,7 +3,10 @@ let bodyParser = require('body-parser');
 let path = require('path');
 const pool = require("./poolDb");
 const videosArr = require("./Videos");
+const routes = require("./routes/videos");
+
 const PORT = process.env.PORT || 8000;
+
 const app = express();
 
 
@@ -11,17 +14,23 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-//set static Path
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+//Set static files path
 app.use(express.static(path.join(__dirname, 'public')));
 
-//route handlers
-app.get('/', function (req, res) {
-    res.render("videos", {
-        videos: videosArr
-    });
+//Route handlers
+app.use("/", routes);
 
-    console.log(videosArr);
-});
+// app.get('/', function (req, res) {
+//     res.render("videos", {
+//         videos: videosArr
+//     });
+//
+//     console.log(videosArr);
+// });
 
 app.get('/videos', async (req, res) => {
     try {
@@ -38,6 +47,7 @@ app.get('/videos', async (req, res) => {
     }
 })
 
+//Running server
 app.listen(PORT, function () {
     console.log(`server started on port ${PORT}...`);
 })
