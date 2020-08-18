@@ -1,8 +1,10 @@
 const express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
+const connectToDb = require("connectionDb");
 const PORT = process.env.PORT || 8000;
 const app = express();
+
 
 //View Engine
 app.set('view engine', 'ejs');
