@@ -2,6 +2,7 @@ const express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
 const pool = require("./poolDb");
+const videosArr = require("./Videos");
 const PORT = process.env.PORT || 8000;
 const app = express();
 
@@ -15,7 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //route handlers
 app.get('/', function (req, res) {
-    res.send('hello World!');
+    res.render("videos", {
+        videos: videosArr
+    });
+
+    console.log(videosArr);
 });
 
 app.get('/videos', async (req, res) => {
