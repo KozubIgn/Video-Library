@@ -17,12 +17,19 @@
         <p><a href="">funny</a></p>
     </div>
 
-    <div class="container" style="display: flex; flex-direction: row; justify-content: center;align-items: center">
-        <p>There will be a random video</p>
-        <p>There will be a random video</p>
-        <p>There will be a random video</p>
-        <p>There will be a random video</p>
-        <p>There will be a random video</p>
+    <div class="video-container" style="display: flex; flex-direction: row; justify-content: center;align-items: center">
+        <div class="video-card">
+            <div class="video-title">
+                <% videos.forEach(function(video){ %>
+                    <%= video.title%>
+                <% }) %>
+            </div>
+            <div class="video-icon">
+            <% videos.forEach(function (video) { %>
+                <img src="public/img/unnamed.jpg">
+            <% })%>
+            </div>
+        </div>
     </div>
 
 

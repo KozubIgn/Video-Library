@@ -4,7 +4,7 @@ const getVideosPromise =  async () => {
     const client = await pool.connect();
     const queryResult = await client.query('SELECT * FROM videos');
     client.release();
-    pool.end();
+    // pool.end();
 
     return queryResult.rows;
 }
