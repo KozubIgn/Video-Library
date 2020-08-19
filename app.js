@@ -2,7 +2,11 @@ const express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
 const pool = require("./poolDb");
-const PORT = process.env.PORT || 8001;
+const videosArr = require("./Videos");
+const routes = require("./routes/videos");
+
+const PORT = process.env.PORT || 8000;
+
 const app = express();
 
 //Body Parser Middleware
@@ -13,33 +17,16 @@ app.use(express.urlencoded({extended: false}));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-//set static Path
+//Set static files path
 // app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static('public'));
 
-//route handlers
-app.get('/', function (req, res) {
-    res.send('hello World!');
-});
+//Route handlers
+app.use("/", routes);
 
 app.get('/add', function (req, res) {
     res.render('form');
 });
-
-app.get('/videos', async (req, res) => {
-    try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT * FROM videos');
-        const results = {'results': (result) ? result.rows : null};
-        res.send(JSON.stringify(results));
-        client.release();
-        pool.end();
-
-    } catch (err) {
-        console.error(err);
-        res.send('Error' + err);
-    }
-});
-
 //POST
 app.post('/add', function (req, res) {
     const newVideo = {
@@ -57,7 +44,6 @@ app.post('/add', function (req, res) {
             console.log(newVideo);
         });
 });
-
 app.listen(PORT, function () {
     console.log(`server started on port ${PORT}...`);
 })
