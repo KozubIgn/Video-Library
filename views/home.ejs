@@ -16,20 +16,17 @@
         <p><a href="">cute</a></p>
         <p><a href="">funny</a></p>
     </div>
-
     <div class="video-container" style="display: flex; flex-direction: row; justify-content: center;align-items: center">
+        <% videos.forEach(function(video){ %>
         <div class="video-card">
             <div class="video-title">
-                <% videos.forEach(function(video){ %>
-                    <%= video.title%>
-                <% }) %>
+                <%= video.title%>
             </div>
             <div class="video-icon">
-            <% videos.forEach(function (video) { %>
-                <img src="public/img/unnamed.jpg">
-            <% })%>
+                <iframe width="400" height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+            <% }) %>
     </div>
 
 
