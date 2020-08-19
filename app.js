@@ -5,6 +5,10 @@ const pool = require("./poolDb");
 const PORT = process.env.PORT || 8001;
 const app = express();
 
+//Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 //View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
