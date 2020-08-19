@@ -20,13 +20,16 @@
     </div>
     <div class="video-container">
         <% videos.forEach(function(video){ %>
-        <div class="video-card">
+            <div class="video-card">
             <div class="video-title">
                 <%= video.title%>
             </div>
             <div class="video-icon">
                 <iframe width="300" height="215" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+            <a type="button" class="update-btn" href="./video/<%=video.id%>">
+                Update
+            </a>
         </div>
             <% }) %>
     </div>

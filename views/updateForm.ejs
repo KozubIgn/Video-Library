@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add video</title>
+    <title>Update video</title>
 </head>
 <body>
 <h1>Add your video</h1>
-<form method="POST" action="/add">
+<form method="POST" action="/video/<%= id%> ">
     <label>Title: </label><br>
-    <input type="text" name="title">
+    <input type="text" name="title" value="<%= title %>">
     <br>
     <label>Description:</label><br>
-    <input type="text" name="description">
+    <input type="text" name="description" value="<%= description %>">
     <br>
     <label> Tags:</label><br>
-    <input type="text" name="tags">
+    <input type="text" name="tags" value="<%= tags %>">
     <br>
     <label> URL: </label><br>
-    <input type="url" name="url">
+    <input type="url" name="url" value="<%= url %>">
     <br><br>
     <input type="submit" value="Submit">
 </form>
