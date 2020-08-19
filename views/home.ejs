@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 style="text-align: center">Video Library</h1>
+    <header><img src="public/img/logo.png"></header><br>
     <div class="searchbar" >
-        <input type="text" name="search" class="input" placeholder="Search...">
+        <input type="text" name="search" class="input" placeholder="Search by title, tag or description...">
         <div class="searchbtn">
             <i class="fas fa-search"></i>
         </div>
@@ -22,6 +22,7 @@
         <p><a href="">funny</a></p>
         <p><a href="">cats</a></p>
         <p><a href="">music</a></p>
+        <p><a href="">travel</a></p>
     </div>
     <div class="video-container">
         <% videos.forEach(function(video){ %>
