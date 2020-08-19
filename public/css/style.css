@@ -5,6 +5,14 @@ body {
     background-size: 100% 100%;
 
 }
+.tags {
+    display: flex;
+    flex-flow: row;
+}
+
+.tags p a {
+    margin-left: 10px;
+}
 
 .video-container {
     display: grid;
@@ -28,3 +36,4 @@ body {
     font-size: 25px;
     text-transform: capitalize;
 }
+
