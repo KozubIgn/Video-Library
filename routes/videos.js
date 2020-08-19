@@ -1,6 +1,7 @@
 const express = require("express");
 const promises = require("../videosPromise");
 const router = express.Router();
+const pool = require("../poolDb");
 
 
 //There should be random 5 videos on home page
@@ -14,14 +15,14 @@ router.get("/", async (req, res) => {
 })
     
 // UPDATE
-router.put('/video/:id', function (req, res) {
+router.post('/video/:id', function (req, res) {
     const newVideo = {
         title: req.body.title,
         description: req.body.description,
         tags: req.body.tags,
         url: req.body.url
     }
-    pool.query('UPDATE videos SET ($1, $2, $3, $4) WHERE id ='+ req.params.id ,
+    pool.query('UPDATE videos SET title=$1, description=$2, tags=$3, url=$4 WHERE id ='+ req.params.id,
         [newVideo.title, newVideo.description, newVideo.tags, newVideo.url], (err, results) => {
             if (err) {
                 throw err;
