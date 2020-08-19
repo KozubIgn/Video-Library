@@ -16,14 +16,14 @@
         <p><a href="">cute</a></p>
         <p><a href="">funny</a></p>
     </div>
-    <div class="video-container" style="display: flex; flex-direction: row; justify-content: center;align-items: center">
+    <div class="video-container">
         <% videos.forEach(function(video){ %>
         <div class="video-card">
             <div class="video-title">
                 <%= video.title%>
             </div>
             <div class="video-icon">
-                <iframe width="400" height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="215" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
             <% }) %>
