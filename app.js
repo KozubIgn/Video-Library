@@ -42,7 +42,7 @@ app.get('/videos', async (req, res) => {
 
 //POST
 app.post('/add', function (req, res) {
-    let newVideo = {
+    const newVideo = {
         title: req.body.title,
         description: req.body.description,
         tags: req.body.tags,
@@ -50,13 +50,12 @@ app.post('/add', function (req, res) {
     }
     pool.query('INSERT INTO videos (title, description, tags, url) VALUES ($1, $2, $3, $4)',
         [newVideo.title, newVideo.description, newVideo.tags, newVideo.url], (err, results) => {
-        if (err) {
-            throw err
-        }
-        response.status(201).send(`Video added with ID: ${result.insertId}`)
+            if (err) {
+                throw err;
+            }
+            res.status(201).send('Video added !')
             console.log(newVideo);
         });
-
 });
 
 app.listen(PORT, function () {
