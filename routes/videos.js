@@ -1,11 +1,11 @@
 const express = require("express");
-const videosArrayPromise = require("../Videos");
+const promises = require("../videosPromise");
 const router = express.Router();
 
 
 //There should be random 5 videos on home page
 router.get("/", async (req, res) => {
-    const arr = await videosArrayPromise().then(value => {
+    const arr = await promises.getVideosPromise().then(value => {
         return value;
     })
     res.render("home", {

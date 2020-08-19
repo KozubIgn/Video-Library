@@ -2,7 +2,7 @@ const express = require('express');
 let bodyParser = require('body-parser');
 let path = require('path');
 const pool = require("./poolDb");
-const videosArr = require("./Videos");
+const videosArr = require("./videosPromise");
 const routes = require("./routes/videos");
 
 const PORT = process.env.PORT || 8000;
