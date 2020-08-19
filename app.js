@@ -9,14 +9,13 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 
+//Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 //View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 //Set static files path
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -25,30 +24,26 @@ app.use('/public', express.static('public'));
 //Route handlers
 app.use("/", routes);
 
-// app.get('/', function (req, res) {
-//     res.render("videos", {
-//         videos: videosArr
-//     });
-//
-//     console.log(videosArr);
-// });
-
-// app.get('/videos', async (req, res) => {
-//     try {
-//         const client = await pool.connect();
-//         const result = await client.query('SELECT * FROM videos');
-//         const results = {'results': (result) ? result.rows : null};
-//         res.send(JSON.stringify(results));
-//         client.release();
-//         pool.end();
-//
-//     } catch (err) {
-//         console.error(err);
-//         res.send('Error' + err);
-//     }
-// })
-
-//Running server
+app.get('/add', function (req, res) {
+    res.render('form');
+});
+//POST
+app.post('/add', function (req, res) {
+    const newVideo = {
+        title: req.body.title,
+        description: req.body.description,
+        tags: req.body.tags,
+        url: req.body.url
+    }
+    pool.query('INSERT INTO videos (title, description, tags, url) VALUES ($1, $2, $3, $4)',
+        [newVideo.title, newVideo.description, newVideo.tags, newVideo.url], (err, results) => {
+            if (err) {
+                throw err;
+            }
+            res.status(201).send('Video added !')
+            console.log(newVideo);
+        });
+});
 app.listen(PORT, function () {
     console.log(`server started on port ${PORT}...`);
 })
