@@ -136,10 +136,10 @@ header img {
 
 
 
-/*.update-btn {*/
-/*    !*opacity: 1%;*!*/
-/*    display: none;*/
-/*}*/
+.update-btn {
+    /*opacity: 1%;*/
+    text-decoration: none;
+}
 
 /*.update-btn:hover {*/
 /*    !*opacity: 100%;*!*/
