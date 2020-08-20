@@ -10,7 +10,6 @@ router.get('/results', async (req, res) => {
     const queryObject = req.query;
     console.log(queryObject.tag)
     const arr = await promises.getTagPromise(queryObject.tag).then(value => {
-
         return value;
     })
 
