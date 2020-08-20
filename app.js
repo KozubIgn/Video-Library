@@ -4,6 +4,7 @@ let path = require('path');
 const pool = require("./poolDb");
 const videosArr = require("./videosPromise");
 const routes = require("./routes/videos");
+const searchByTag = require("./controllers/searchByTag");
 
 const PORT = process.env.PORT || 8000;
 
@@ -21,7 +22,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/public', express.static('public'));
 
 //Route handlers
+app.use("/", searchByTag);
 app.use("/", routes);
+
 
 app.get('/add', function (req, res) {
     res.render('form');

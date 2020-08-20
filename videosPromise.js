@@ -15,8 +15,21 @@ const promises = {
         // pool.end();
 
         return queryResult.rows;
+    },
+
+    getTagPromise: async (tag) => {
+        const client = await pool.connect();
+        const queryResult = await client.query("SELECT * FROM videos WHERE tags LIKE  $1",
+            [`%${tag}%`], (err, results) => {
+                if (err) {
+                    throw err;
+                }
+            });
+        client.release();
+        return queryResult.rows;
     }
 }
+
 module.exports = promises;
 //zrobic folder i dac to tam
 
