@@ -1,0 +1,47 @@
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    background: #131212;
+    margin: auto;
+    background-size: 100% 100%;
+    color:#747474 ;
+}
+header img {
+    display: flex;
+    align-content: center;
+    justify-self: center;
+    position: relative;
+    left: 44%;
+}
+.form-container {
+    padding: 0em 40em;
+    display: block;
+    position: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    color: #747474;
+}
+input {
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    outline: none;
+    background: rgba(0,0,0,0.5);
+    color: #747474;
+    margin-bottom: 0.6em;
+}
+#submit-btn{
+    padding: 0.6em;
+    background: rgb(52, 5, 85);
+}
+#submit-btn:hover {
+    color: #265a6f;
+}

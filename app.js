@@ -4,9 +4,9 @@ let path = require('path');
 const pool = require("./poolDb");
 const videosArr = require("./videosPromise");
 const routes = require("./routes/videos");
+const searchByTag = require("./controllers/searchByTag");
 
 const PORT = process.env.PORT || 8000;
-
 const app = express();
 
 //Body Parser Middleware
@@ -22,6 +22,9 @@ app.use('/public', express.static('public'));
 
 //Route handlers
 app.use("/", routes);
+app.use("/", searchByTag);
+
+
 
 app.get('/add', function (req, res) {
     res.render('form');
