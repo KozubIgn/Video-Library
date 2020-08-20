@@ -5,9 +5,7 @@ const pool = require("./poolDb");
 const videosArr = require("./videosPromise");
 const routes = require("./routes/videos");
 const searchByTag = require("./controllers/searchByTag");
-
 const PORT = process.env.PORT || 8000;
-
 const app = express();
 
 //Body Parser Middleware

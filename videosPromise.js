@@ -16,17 +16,17 @@ const promises = {
 
         return queryResult.rows;
     },
-
     getTagPromise: async (tag) => {
         const client = await pool.connect();
-        const queryResult = await client.query("SELECT * FROM videos WHERE tags LIKE  $1",
-            [`%${tag}%`], (err, results) => {
+        const queryResult = await client.query(
+            "SELECT * FROM videos WHERE tags LIKE $1", ['%' + tag + '%'], (err, results) => {
                 if (err) {
                     throw err;
                 }
             });
         client.release();
-        return queryResult.rows;
+        console.log(queryResult);
+        return queryResult;
     }
 }
 

@@ -34,7 +34,6 @@ router.post('/video/:id', function (req, res) {
     router.get('/video/:id', async (req, res) => {
         const result = await promises.getIdPromise(req.params.id).then(value => {
             return value;
-
         })
         console.log(result);
         res.render("updateForm", {
@@ -44,7 +43,6 @@ router.post('/video/:id', function (req, res) {
             tags: result[0].tags,
             url: result [0].url
         })
-    })
+    });
 
-// console.log(arr);
 module.exports = router;

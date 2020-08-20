@@ -6,18 +6,18 @@ const promises = require("../videosPromise");
 const router = express.Router();
 
 
-router.get("videos?tag=:tag", async (req, res) => {
-    const queryObject = url.parse(req.url, true).query;
+router.get('/results', async (req, res) => {
+    const queryObject = req.query;
+    console.log(queryObject.tag)
+    const arr = await promises.getTagPromise(queryObject.tag).then(value => {
 
-    const arr = await promises.getTagPromise(queryObject).then(value => {
         return value;
-    });
-
-    console.log(queryObject);
+    })
 
     res.render("home", {
         videos: arr
     });
+
 });
 
 module.exports = router;
