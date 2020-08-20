@@ -10,20 +10,24 @@
 <body>
 <header><img src="public/img/logo.png"></header>
 <br>
-<form method="POST" action="/search" class="searchbar">
+<form method="post" action="/search?result=<%= searchInput %>>" class="searchbar">
     <input type="text" name="search" class="input" placeholder="Search by title, tag or description...">
-    <div class="searchbtn">
-        <i class="fas fa-search"></i>
+    <div class="searchbtn" id="search-btn">
+        <i class="fas fa-search">
+        <input id="search-btn" type="submit" style="display: none">
+        </i>
+
     </div>
 </form>
 <div class="tags">
     <h3>Popular tags: </h3>
-    <p><a href="/results?tag=animals">#animals</a></p>
     <p><a href="/results?tag=monkey">#monkey</a></p>
+    <p> <%= searchInput %> </p>
     <p><a href="/results?tag=cute">#cute</a></p>
     <p><a href="results?tag=funny">#funny</a></p>
     <p><a href="results?tag=cats">#cats</a></p>
     <p><a href="results?tag=music">#music</a></p>
+    <p><a href="results?tag=travel">#travel</a></p>
 </div>
 <div class="video-container">
     <% videos.forEach(function(video){ %>

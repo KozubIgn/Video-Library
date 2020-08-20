@@ -31,5 +31,4 @@ const promises = {
     }
 }
 module.exports = promises;
-//zrobic folder i dac to tam
 

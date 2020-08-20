@@ -118,6 +118,10 @@ header img {
     opacity: 0.4;
 }
 
+:placeholder-shown {
+    background: #131313;
+}
+
 .searchbtn {
     background: rgb(52, 5, 85);
     width: 9%;
@@ -136,10 +140,9 @@ header img {
 
 
 
-/*.update-btn {*/
-/*    !*opacity: 1%;*!*/
-/*    display: none;*/
-/*}*/
+.update-btn {
+    text-decoration: none;
+}
 
 /*.update-btn:hover {*/
 /*    !*opacity: 100%;*!*/
