@@ -24,7 +24,7 @@ app.use('/public', express.static('public'));
 //Route handlers
 app.use("/", routes);
 app.use("/", searchByTag);
-app.use("/results",search);
+app.use("/", search);
 
 app.get('/add', function (req, res) {
     res.render('form');
