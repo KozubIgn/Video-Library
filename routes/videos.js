@@ -16,19 +16,20 @@ router.get("/", async (req, res) => {
     
 // UPDATE
 router.post('/video/:id', function (req, res) {
-    const newVideo = {
+    const updateVideo = {
+        id: req.params.id,
         title: req.body.title,
         description: req.body.description,
         tags: req.body.tags,
         url: req.body.url
     }
-    pool.query('UPDATE videos SET title=$1, description=$2, tags=$3, url=$4 WHERE id ='+ req.params.id,
-        [newVideo.title, newVideo.description, newVideo.tags, newVideo.url], (err, results) => {
+    pool.query('UPDATE videos SET id=$1, title=$2, description=$3, tags=$4, url=$5 WHERE id ='+ req.params.id,
+        [updateVideo.id, updateVideo.title, updateVideo.description, updateVideo.tags, updateVideo.url], (err, results) => {
             if (err) {
                 throw err;
             }
             res.status(201).send('Video updated !')
-            console.log(newVideo);
+            console.log(updateVideo);
         });
 })
     router.get('/video/:id', async (req, res) => {
