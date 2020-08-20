@@ -8,37 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header><img src="public/img/logo.png"></header><br>
-    <div class="searchbar" >
-        <input type="text" name="search" class="input" placeholder="Search by title, tag or description...">
-        <div class="searchbtn">
-            <i class="fas fa-search"></i>
-        </div>
+<header><img src="public/img/logo.png"></header>
+<br>
+<form method="POST" action="/search?result=<%= searchInput %>" class="searchbar">
+    <input type="text" name="search" class="input" placeholder="Search by title, tag or description...">
+    <div class="searchbtn">
+        <i class="fas fa-search"></i>
     </div>
-    <div class="tags">
-        <h3>Popular tags: </h3>
-        <p><a href="/results?tag=monkey">#monkey</a></p>
-        <p><a href="/results?tag=cute">#cute</a></p>
-        <p><a href="results?tag=funny">#funny</a></p>
-        <p><a href="results?tag=cats">#cats</a></p>
-        <p><a href="results?tag=music">#music</a></p>
-        <p><a href="results?tag=travel">#travel</a></p>
-    </div>
-    <div class="video-container">
-        <% videos.forEach(function(video){ %>
-            <div class="video-card">
+</form>
+<div class="tags">
+    <h3>Popular tags: </h3>
+    <p><a href="/results?tag=monkey">#monkey</a></p>
+    <p><a href="/results?tag=cute">#cute</a></p>
+    <p><a href="results?tag=funny">#funny</a></p>
+    <p><a href="results?tag=cats">#cats</a></p>
+    <p><a href="results?tag=music">#music</a></p>
+    <p><a href="results?tag=travel">#travel</a></p>
+</div>
+<div class="video-container">
+    <% videos.forEach(function(video){ %>
+        <div class="video-card">
             <div class="video-title">
-                <%= video.title%>
+                <%= video.title %>
             </div>
             <div class="video-icon">
-                <iframe width="300" height="215" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="215" src="<%= video.url %>" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
-            <a type="button" class="update-btn" href="./video/<%=video.id%>">
+            <a type="button" class="update-btn" href="./video/<%= video.id %>">
                 Update
             </a>
         </div>
-            <% }) %>
-    </div>
+    <% }) %>
+</div>
 
 
 </body>
