@@ -6,7 +6,7 @@ const promises = require("../videosPromise");
 const router = express.Router();
 
 
-router.post('/results', async (req, res) => {
+router.get('/results', async (req, res) => {
     const queryObject = req.query;
     console.log(queryObject.tag)
     const arr = await promises.getTagPromise(queryObject.tag).then(value => {
