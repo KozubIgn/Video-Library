@@ -13,23 +13,21 @@ header img {
     align-content: center;
     justify-self: center;
     position: relative;
-    left: 44%;
+    left: 45%;
 }
 .form-container {
     padding: 0em 40em;
     display: block;
     position: center;
-    justify-items: center;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-    margin-top: 60px;
+    /*justify-items: center;*/
+    /*justify-content: center;*/
+    /*align-content: center;*/
+    margin-top: 30px;
     margin-bottom: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     color: #747474;
 }
-input {
+.text {
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -37,11 +35,24 @@ input {
     background: rgba(0,0,0,0.5);
     color: #747474;
     margin-bottom: 0.6em;
+    height: 35px;
+    width: 300px;
 }
 #submit-btn{
     padding: 0.6em;
     background: rgb(52, 5, 85);
+    border-radius: 5px;
+    border: none;
+    margin-left:121px;
 }
 #submit-btn:hover {
     color: #265a6f;
+}
+
+h1 {
+    margin-left: 42.9%;
+}
+
+h1.title {
+    margin-left: 44%;
 }
