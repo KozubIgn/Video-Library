@@ -27,7 +27,7 @@ router.post('/video/:id', function (req, res) {
             if (err) {
                 throw err;
             }
-            res.status(201).send('Video updated !')
+            res.status(201).send('Video updated !');
             console.log(newVideo);
         });
 })
